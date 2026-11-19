@@ -18,7 +18,9 @@ class Car:
         self.speed += CAR_ACCELERATION
 
     def update_position(self) -> None:
-        self.y += self.speed
+        angle_rad = math.radians(self.angle)
+        self.x += self.speed * math.sin(angle_rad)
+        self.y += self.speed * math.cos(angle_rad)
 
     def build_sprite(self) -> pygame.Surface:
         surf = pygame.Surface((CAR_WIDTH, CAR_HEIGHT), pygame.SRCALPHA)
@@ -27,6 +29,18 @@ class Car:
         return surf
 
     def get_rotated_sprite(self) -> tuple[pygame.Surface, pygame.Rect]:
-        rotated = pygame.transform.rotate(self.sprite, -self.angle)
+        rotated = pygame.transform.rotate(self.sprite, self.angle)
         rect = rotated.get_rect(center=(int(self.x), int(self.y)))
         return rotated, rect
+
+    def brake (self) :
+        self.speed -= CAR_ACCELERATION
+
+    def apply_friction(self):
+        self.speed *= 0.99    
+
+    def turn_left(self):
+        self.angle += 5
+
+    def turn_right(self):
+        self.angle -= 5    
