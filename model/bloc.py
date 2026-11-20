@@ -20,15 +20,15 @@ class Bloc(ABC):
 
     @abstractmethod #le bloc définit ce qu'il fait quand une voiture entre sur sa case
     def a_l_entree(self, car, course):
-        
+        pass
 
 
 class PointDePassage(Bloc):
-     """
-     entrée : col, row , indice,car, course
-     sotie : rien
-     traitement : initialise la position du checkpoint sur la grille,enregistre son numéro, puis le convertit en lettre pour faciliter l'affichage
-     """
+    """
+    entrée : col, row , indice,car, course
+    sotie : rien
+    traitement : initialise la position du checkpoint sur la grille,enregistre son numéro, puis le convertit en lettre pour faciliter l'affichage
+    """
 
     nature = "point_de_passage"
     libelle = "C"
@@ -83,7 +83,7 @@ class BlocDepart(Bloc):
         self.libelle = str(joueur)
 
     def a_l_entree(self, car, course):
-       """ pas effet """
+       pass
 
 
 _BLOCS_SIMPLES = {"L": LigneArrivee, "B": Boost}
