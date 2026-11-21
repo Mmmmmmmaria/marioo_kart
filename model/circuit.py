@@ -1,37 +1,75 @@
 # marioo_kart
-# Kart-Engine v2.3
-from constants import TILE_SIZE
-from model.terrain import TERRAINS
-class Circuit:
-    """La grille complète d'un circuit et ses informations."""
-    def __init__(self, nom, grid, tours, nb_points_de_passage, positions_depart):
-        self.nom = nom
 
-        self.grid = grid                            # grid[row][col] -> Tile
-        self.tours = tours                          # nombre de tours à faire
+from model.terrain import TERRAINS, Terrain
+from model.tile import Tile
+from constants import TILE_SIZE
+
+class Circuit:
+    def __init__(self, nom: str, grid: list[list[Tile]], tours: int, nb_points_de_passage: int, positions_depart: dict):
+        """
+        Entre: nom, grid, tours, nb_points_de_passage, positions_depart
+        Sortie : rien(initialise l'objet Circuit)
+        Fonctionnement : stocke les informations du circuit et calcule le nombre de lignes et de colonnes de la grille
+
+        """
+        self.nom = nom
+        self.grid = grid
+        self.tours = tours
         self.nb_points_de_passage = nb_points_de_passage
-        self.positions_depart = positions_depart    # {1: (x, y, cap), 2: (x, y, cap)}
-        self.nb_lignes = len(grid)
-        self.nb_colonnes = len(grid[0])
-    @property
-    def pixel_width(self):
-        return self.nb_colonnes * TILE_SIZE
-    @property
-    def pixel_height(self):
-        return self.nb_lignes * TILE_SIZE
-    def get_tile(self, col, row):
-        """Renvoie la case (col, row), ou None si on est hors de la grille."""
-        if 0 <= row < self.nb_lignes and 0 <= col < self.nb_colonnes:
+        self.positions_depart = positions_depart  # {joueur: (x, y, cap)}
+        self.rows = len(grid)
+        self.cols = len(grid[0]) if grid else 0
+
+
+
+
+    def get_tile(self, col: int, row: int) -> Tile | None:
+        """
+        # Entrées : col (colonne) et row (ligne) 
+        # Sortie : la case (Tile) demandée,ou None si les coord hors de la grille
+        # Fonctionnement : vérifie que les coordonnées sont valides, puis récupère la case correspondante
+        """
+
+        if 0 <= row < self.rows and 0 <= col < self.cols:
             return self.grid[row][col]
         return None
-    def get_tile_at_pixel(self, px, py):
-        """Renvoie la case qui contient le point (px, py) en pixels."""
+
+    
+
+
+    def get_tile_at_pixel(self, px: float, py: float) -> Tile | None:
+        """
+            Entrées : px et py (position en pixels)
+            Sortie : la case (Tile) située à cette position, ou None si hors de la grille
+            Fonctionnement : convertit les coordonnées en pixels en coordonnées de grille (ligne et colonne), puis appelle get_tile()
+         """
         col = int(px // TILE_SIZE)
         row = int(py // TILE_SIZE)
         return self.get_tile(col, row)
-    def terrain_en(self, px, py):
-        """Terrain sous le point (px, py). Hors de la carte = Vide."""
+
+
+    def pixel_width(self) -> int:
+        return self.cols * TILE_SIZE
+    """
+    # Entrées : rien
+    # Sortie : largeur totale du circuit en pixels
+    # Fonctionnement : multiplie le nombre de colonnes par la taille d'une case
+    """
+
+    def pixel_height(self) -> int:
+        return self.rows * TILE_SIZE
+    """
+    # Entrées : rien
+    # Sortie : hauteur totale du circuit en pixels
+    # Fonctionnement : multiplie le nombre de lignes par la taille d'une case
+    """
+
+    def terrain_en(self, px: float, py: float) -> Terrain:
+        """[AJOUT] Terrain au point donné ; l'extérieur de la carte est du Vide."""
         tile = self.get_tile_at_pixel(px, py)
-        if tile is None:
-            return TERRAINS["V"]
-        return tile.terrain
+        return tile.terrain if tile else TERRAINS["V"]
+    """
+    # Entrées : px et py (position en pixels)
+    # Sortie : le terrain (Terrain) situé à cette position
+    # Fonctionnement : récupère la case correspondante et renvoie son terrain, si la position est à l'extérieur de la carte le terrain Vide (V)
+    """
