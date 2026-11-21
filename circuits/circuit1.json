@@ -1,0 +1,19 @@
+{
+    "nom": "Circuit 1",
+    "tours": 3,
+    "cap_depart": 0,
+    "terrain": [
+        "RRRRRR",
+        "RRRRRR",
+        "RRRRRR",
+        "RRRRRR",
+        "RRRRRR"
+    ],
+    "blocs": [
+        "......",
+        ".1aL2.",
+        "......",
+        "......",
+        "......"
+    ]
+}
