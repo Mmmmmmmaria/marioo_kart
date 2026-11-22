@@ -1,3 +1,5 @@
+# jeu_de_course
+
 from constants import GameState, GRID_ROWS, GRID_COLS
 from model.car import Car
 from model.circuit import Circuit

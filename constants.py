@@ -1,3 +1,6 @@
+
+# jeu_de_course
+
 WINDOW_WIDTH = 1024
 WINDOW_HEIGHT = 768
 FPS = 60

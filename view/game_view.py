@@ -1,3 +1,5 @@
+# jeu_de_course
+
 import pygame
 from constants import (
     WINDOW_WIDTH, WINDOW_HEIGHT, TILE_SIZE,
