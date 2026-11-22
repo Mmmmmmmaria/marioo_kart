@@ -1,0 +1,10 @@
+# Fichiers Python temporaires
+__pycache__/
+*.pyc
+
+# Environnements virtuels
+venv/
+.venv/
+
+# Fichiers système Mac
+.DS_Store
