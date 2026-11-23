@@ -26,7 +26,7 @@ class InputHandler:
 '''
 
 class InputHandler:
-    """Gestion des commandes clavier des deux joueurs."""
+    '''Gestion des commandes clavier des deux joueurs.'''
 
     def get_inputs(self) -> dict:
         keys = pygame.key.get_pressed()
