@@ -1,6 +1,6 @@
 import pygame
 from constants import TILE_SIZE
-from model.terrain import Road
+from model.terrain import Road, Grass, Dirt, Ice, Void
 
 
 class RoadTile:
@@ -15,7 +15,9 @@ class RoadTile:
         if self.sprite and self.sprite.get_width() == tile_size:
             return self.sprite
         surface = pygame.Surface((tile_size, tile_size))
-        surface.fill((80, 80, 90))
+        # récupérer la couleur définie dans terrain.py
+        surface.fill(self.terrain.couleur)
+
         pygame.draw.rect(surface, (60, 60, 70), surface.get_rect(), 2)
 
         self.sprite = surface

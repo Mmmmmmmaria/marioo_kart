@@ -7,6 +7,8 @@ from constants import (
 from model.game_model import GameModel
 from view.game_view import GameView
 from controller.input_handler import InputHandler
+from model.terrain import Void
+from model.physique_voiture import mettre_a_jour_voiture
 
 
 class GameController:
@@ -58,15 +60,20 @@ class GameController:
         self.model.update()
 
     def apply_input(self, car, player_input) -> None:
-        if player_input['accelerate']:
-            car.accelerate()
-        if player_input['brake']:
-            car.brake()
-        if player_input['turn_left']:
-            car.turn_left()
-        if player_input['turn_right']:
-            car.turn_right()            
 
+        case = self.model.circuit.get_tile_at_pixel(car.x, car.y)
+        if case is not None :
+            terrain = case.terrain
+        else :
+            terrain = Void()
+    
+        entrees = {
+            "accelerer" : player_input['accelerate'],
+            "freiner" : player_input['brake'],
+            "gauche" : player_input['turn_left'],
+            "droite" : player_input['turn_right']
+       }            
+        mettre_a_jour_voiture(car, entrees, terrain, 1/FPS)
     def render(self) -> None:
         self.view.draw(self.model)
 
