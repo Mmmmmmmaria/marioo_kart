@@ -4,17 +4,28 @@ from constants import (
     CAR_ACCELERATION, CAR_WIDTH, CAR_HEIGHT, TILE_SIZE
 )
 
+class FicheVoiture :
+     def __init__(self, nom, couleur, acceleration):
+        self.nom = nom
+        self.couleur = couleur
+        self.acceleration = acceleration
+
+CATALOGUE_VOITURES = [
+          FicheVoiture("Rouge", (220, 50, 50), CAR_ACCELERATION),
+          FicheVoiture("Bleue", (50, 100, 220), CAR_ACCELERATION)
+]        
 
 class Car:
 
-    def __init__(self, start_col: int, start_row: int, joueur: int = 1):
-        self.x = start_col * TILE_SIZE + TILE_SIZE // 2
-        self.y = start_row * TILE_SIZE + TILE_SIZE // 2
-        self.speed: float = 0.0
-        self.angle: float = 0.0
-        self.move_angle = self.angle
-        self.sprite = self.build_sprite()
+    def __init__(self, joueur, fiche, x, y, cap):
         self.joueur = joueur
+        self.fiche = fiche
+        self.x = x
+        self.y = y 
+        self.speed: float = 0.0
+        self.angle = cap
+        self.move_angle = cap
+        self.sprite = self.build_sprite()
         self.est_en_boost = False
         self.temps_boost = 0.0
 
@@ -41,7 +52,7 @@ class Car:
 
 
     def accelerate(self, terrain) -> None:
-        self.speed += CAR_ACCELERATION * terrain.traction
+        self.speed += self.fiche.acceleration * terrain.traction
 
     def update_position(self) -> None:
         angle_rad = math.radians(self.move_angle)
@@ -50,7 +61,7 @@ class Car:
 
     def build_sprite(self) -> pygame.Surface:
         surf = pygame.Surface((CAR_WIDTH, CAR_HEIGHT), pygame.SRCALPHA)
-        pygame.draw.rect(surf, (255, 0, 0), (0, 0, CAR_WIDTH,
+        pygame.draw.rect(surf, self.fiche.couleur, (0, 0, CAR_WIDTH,
                          CAR_HEIGHT), border_radius=5)
         return surf
 

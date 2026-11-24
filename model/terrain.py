@@ -51,12 +51,18 @@ class Void(Terrain):
         self.code = "V"
         self.couleur = (0, 0, 0)
         self.est_vide = True                                    
-
+class Sand(Terrain):
+    """Terrain de type sable [TERRA-7]."""
+    def __init__(self):
+        super().__init__(0.5, 0.4, 0.92)
+        self.code = "S"
+        self.couleur = (215, 185, 125)
 
 TERRAINS = {
     "R" : Road(),
     "G" : Grass(),
     "D" : Dirt(),
     "I" : Ice(),
-    "V" : Void()
+    "V" : Void(),
+    "S" : Sand()
 }        

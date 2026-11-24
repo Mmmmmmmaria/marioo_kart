@@ -4,6 +4,8 @@ from model.circuit import Circuit
 from model.road_tile import RoadTile
 from model.terrain import Ice
 from model.terrain import Void
+from constants import TILE_SIZE
+from model.car import Car, CATALOGUE_VOITURES
 
 
 class GameModel:
@@ -23,7 +25,12 @@ class GameModel:
         self.spawn_car()
 
     def spawn_car(self) -> None:
-        self.car = Car(7, 1)
+        self.car = Car(
+            1, CATALOGUE_VOITURES[0],
+            7 * TILE_SIZE + TILE_SIZE // 2,
+            1 * TILE_SIZE + TILE_SIZE // 2,
+            0
+        )
         # enregistrement des trois informations nécessaires à la téléportation
         self.last_checkpoint = (self.car.x, self.car.y, self.car.angle)
 
