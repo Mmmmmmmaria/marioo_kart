@@ -21,16 +21,16 @@ Ce jeu permet à deux joueurs de conduire leur voiture simultanément à l'aide 
 
 ### Joueur 1 :
 
-Touche Z  : Accélérer
-Touche S : Freiner 
+Touche Z  : Avancer
+Touche S : Freiner/Reculer 
 Touche A : Tourner à gauche 
 Touche E : Tourner à droite 
 Touche Tabulation : Utiliser un objet
 
 ### Joueur 2 :
 
-Touche flèche haut  : Accélérer
-Touche flèche bas : Freiner 
+Touche flèche haut  : Avancer
+Touche flèche bas : Freiner / Reculer  
 Touche flèche gauche : Tourner à gauche 
 Touche flèche droite : Tourner à droite 
 Touche shift : Utiliser un objet

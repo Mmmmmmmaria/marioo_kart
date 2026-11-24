@@ -32,11 +32,11 @@ class InputHandler:
         keys = pygame.key.get_pressed()
 
         player1 = {
-            "accelerate": keys[pygame.K_z],
+            "accelerate": keys[pygame.K_z] or keys[pygame.K_w],
             "brake": keys[pygame.K_s],
-            "left": keys[pygame.K_a],
-            "right": keys[pygame.K_e],
-            "use_item": keys[pygame.K_TAB]
+            "left": keys[pygame.K_a] or keys[pygame.K_z],
+            "right": keys[pygame.K_d],
+            "use_item": keys[pygame.K_SPACE]
         }
 
         player2 = {
@@ -44,7 +44,7 @@ class InputHandler:
             "brake": keys[pygame.K_DOWN],
             "left": keys[pygame.K_LEFT],
             "right": keys[pygame.K_RIGHT],
-            "use_item": keys[pygame.K_SHIFT]
+            "use_item": keys[pygame.K_RETURN]
         }
 
         return {
