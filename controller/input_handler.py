@@ -34,7 +34,7 @@ class InputHandler:
         player1 = {
             "accelerate": keys[pygame.K_z] or keys[pygame.K_w],
             "brake": keys[pygame.K_s],
-            "left": keys[pygame.K_a] or keys[pygame.K_z],
+            "left": keys[pygame.K_a] or keys[pygame.K_q],
             "right": keys[pygame.K_d],
             "use_item": keys[pygame.K_SPACE]
         }
