@@ -1,3 +1,4 @@
+# Kart-Engine v2.3
 import pygame
 import math
 from constants import (
@@ -79,7 +80,8 @@ class Car:
             self.speed -= CAR_ACCELERATION * 0.3
 
     def apply_friction(self, terrain):
-        self.speed *= terrain.friction   
+        self.speed *= 0.995 # Résistance de l'air
+        self.speed *= terrain.friction # Frottement du terrain  
 
     def turn_left(self):
         self.angle += 5
@@ -88,9 +90,9 @@ class Car:
         self.angle -= 5    
 
     # pour faire évoluer move_angle en fonction de l'adhérence du terrain
-    def update_direction (self, terrain):
+    def update_direction (self, terrain, grip_scale):
         difference = self.angle - self.move_angle
-        self.move_angle += difference * (terrain.grip**2)   
+        self.move_angle += difference * ((terrain.grip * grip_scale)**2)   
 
     def teleporter_vers (self, x, y, cap):
         self.x = x

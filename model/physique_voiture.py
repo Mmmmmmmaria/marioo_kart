@@ -1,4 +1,5 @@
 # Kart-Engine v2.3
+GRIP_SCALE = 0.87
 # cette fonction regroupe les commandes et les calculs physiques déjà programmés
 def mettre_a_jour_voiture(car, entrees, terrain, dt):
 
@@ -12,6 +13,6 @@ def mettre_a_jour_voiture(car, entrees, terrain, dt):
         car.turn_right()
 
     car.apply_friction(terrain)
-    car.update_direction(terrain)
+    car.update_direction(terrain, GRIP_SCALE)
     car.update_position() 
     car.avancer_minuteurs(dt)                
