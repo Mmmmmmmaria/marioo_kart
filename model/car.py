@@ -71,7 +71,12 @@ class Car:
         return rotated, rect
 
     def brake (self) :
-        self.speed -= CAR_ACCELERATION
+        if self.speed > 0:
+            # freinage lorsque la voiture avance
+            self.speed = max(0, self.speed - CAR_ACCELERATION *2)
+        else :
+            # marche arrière plus progressive    
+            self.speed -= CAR_ACCELERATION * 0.3
 
     def apply_friction(self, terrain):
         self.speed *= terrain.friction   

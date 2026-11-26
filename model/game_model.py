@@ -2,8 +2,7 @@ from constants import GameState, GRID_ROWS, GRID_COLS
 from model.car import Car
 from model.circuit import Circuit
 from model.road_tile import RoadTile
-from model.terrain import Ice
-from model.terrain import Void
+from model.terrain import Road, Ice, Grass, Dirt, Void, Sand
 from constants import TILE_SIZE
 from model.car import Car, CATALOGUE_VOITURES
 
@@ -17,10 +16,7 @@ class GameModel:
 
     def load_circuit(self) -> None:
         grid = [[RoadTile(col=col_idx, row=row_idx)
-                for row_idx in range(GRID_COLS)] for col_idx in range(GRID_ROWS)]
-        for row in range (2, 6):
-            for col in range (3, 7):
-                grid[row][col] = RoadTile(col = col, row = row, terrain = Ice())        
+                for row_idx in range(GRID_COLS)] for col_idx in range(GRID_ROWS)]       
         self.circuit = Circuit(grid=grid)
         self.spawn_car()
 

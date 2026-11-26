@@ -24,16 +24,16 @@ class Grass(Terrain):
     """ Terrain de type herbe [TERRA-7]."""
 
     def __init__(self):
-        super().__init__(0.6, 0.5, 0.85)
+        super().__init__(0.6, 0.7, 0.98)
         self.code = "G"
         self.couleur = (50, 160, 70)
 class Dirt(Terrain):
     """ Terrain de type terre [TERRA-7]."""
 
     def __init__(self):
-        super().__init__(0.35, 0.5, 0.92) 
+        super().__init__(0.35, 0.6, 0.98) 
         self.code = "D"
-        self.couleur = (150, 100, 60)   
+        self.couleur = (115, 70, 40)   
 
 class Ice(Terrain):
     """ Terrain de type glace [TERRA-7]."""
