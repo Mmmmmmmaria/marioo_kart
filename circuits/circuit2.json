@@ -1,0 +1,36 @@
+
+{
+  "nom": "Circuit 2",
+  "tours": 3,
+  "cap_depart": 0,
+
+  "terrain": [
+    "GGGGGGGGGGGGGGGG",
+    "GRRRRRRVVVVRRRRG",
+    "GRRRRRRRRRRRRRRG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRGGGGGGGGGGIIG",
+    "GRRGGGGGGGGGGIIG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRRRRRRRRRRRRRG",
+    "GRRRRRRRRRRRRRRG",
+    "GGGGGGGGGGGGGGGG"
+  ],
+
+  "blocs": [
+    "................",
+    "............b...",
+    "............b...",
+    "................",
+    "................",
+    ".cc..........aa.",
+    "................",
+    "................",
+    "................",
+    "...1..L...B.....",
+    "...2..L...B.....",
+    "................"
+  ]
+}

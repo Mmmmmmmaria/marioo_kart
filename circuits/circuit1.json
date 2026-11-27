@@ -1,19 +1,36 @@
+
 {
-    "nom": "Circuit 1",
-    "tours": 3,
-    "cap_depart": 0,
-    "terrain": [
-        "RRRRRR",
-        "RRRRRR",
-        "RRRRRR",
-        "RRRRRR",
-        "RRRRRR"
-    ],
-    "blocs": [
-        "......",
-        ".1aL2.",
-        "......",
-        "......",
-        "......"
-    ]
+  "nom": "Circuit 1 ",
+  "tours": 3,
+  "cap_depart": 0,
+
+  "terrain": [
+    "GGGGGGGGGGGGGGGG",
+    "GRRRRDDRRRRRRRRG",
+    "GRRRRDDRRRRRRRRG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRGGGGGGGGGGDDG",
+    "GIIGGGGGGGGGGDDG",
+    "GIIGGGGGGGGGGRRG",
+    "GRRGGGGGGGGGGRRG",
+    "GRRRRRRRRRRRRRRG",
+    "GRRRRRRRRRRRRRRG",
+    "GGGGGGGGGGGGGGGG"
+  ],
+
+  "blocs": [
+    "................",
+    "........b.......",
+    "........b.......",
+    "................",
+    "................",
+    ".cc..........aa.",
+    "................",
+    "................",
+    "................",
+    "...1..L...B.....",
+    "...2..L...B.....",
+    "................"
+  ]
 }
